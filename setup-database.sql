@@ -1,0 +1,8 @@
+IF NOT EXISTS(SELECT 1 FROM sys.databases WHERE name='$(DB_NAME)')
+  CREATE LOGIN $(DB_USER) WITH PASSWORD = '$(DB_PASSWORD)';
+  CREATE DATABASE $(DB_NAME);
+  GO
+  USE $(DB_NAME);
+  CREATE USER $(DB_USER) FOR LOGIN $(DB_USER);
+  EXEC sp_addrolemember N'db_owner', N'$(DB_USER)';
+GO

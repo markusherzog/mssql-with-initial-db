@@ -17,8 +17,5 @@ Edit docker-compose.yml until you like it
 
 ### Step 3
 ```
-docker-compose up --force-recreate --build
+docker-compose up --build
 ```
-
-# TODO
-* check if database exists and then do not create it again
